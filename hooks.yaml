@@ -1,0 +1,6 @@
+- id: warn-against-prints
+  name: Warn users against using print
+  description: This hook warns users against using print()
+  entry: warn-against-prints
+  language: python
+  files: \.py$

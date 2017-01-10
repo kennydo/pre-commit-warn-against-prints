@@ -2,19 +2,6 @@ import argparse
 import ast
 
 
-def user_responds_affirmatively():
-    received = input()
-    if not received:
-        return False
-
-    truthy_responses = set([
-        'y',
-        'yes',
-        'true',
-    ])
-    return received.lower() in truthy_responses
-
-
 class PrintStatementParser(ast.NodeVisitor):
     def __init__(self):
         self.print_nodes = []
@@ -61,17 +48,10 @@ def main(argv=None):
         if visitor.print_nodes:
             detected_print_nodes = True
 
-    retval = 0
-
     if detected_print_nodes:
         print("")
         print("There were calls to `print` detected.")
-        print("Have you considered using the standard library logger instead (y/[n])? ", end="")
+        print("Have you considered using the standard library logger instead?")
 
-        if user_responds_affirmatively():
-            retval = 0
-        else:
-            retval = 1
-
-    return retval
+    return 0
 

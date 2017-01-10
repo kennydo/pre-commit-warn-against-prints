@@ -1,0 +1,1 @@
+# pre-commit-warn-against-prints
